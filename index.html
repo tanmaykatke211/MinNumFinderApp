@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Minimum Number Finder by Tanmay Katke</title>
+		<style>
+			*{font-size:50px;}
+			body{background-color:azure;}
+			h1{background-color:black; color:white; border-radius:40px; width:50%}
+			.btn{width:10%; margin:30px; color:white; background-color:black;}
+			.btn:hover{color:black; background-color:white;}
+		</style>
+	</head>
+	<body>
+	<center>
+		<h1>Minimum Number Finder with multiple buttons</h1>
+		<form onsubmit="min()">
+			<input type="number" step="any" placeholder="Enter number 1" id="num1"/>
+			<br/><br/>
+			<input type="number" step="any" placeholder="Enter number 2" id="num2"/>
+			<br/><br/>
+			<input type="submit" value="m1" class="btn"/>
+			<input type="submit" value="m2" class="btn"/>
+			<input type="submit" value="m3" class="btn"/>
+		</form>
+		<h2 id="msg"/>
+	</center>
+	<script>
+		function min()
+		{
+			event.preventDefault();
+			let num1 = document.getElementById("num1");
+			let num2 = document.getElementById("num2");
+			let msg = document.getElementById("msg");
+			let action = document.activeElement.value;
+			
+			if (num1 === "")
+			{
+				alert("Please enter number 1.");
+				msg.innerHTML = "";
+				num.focus();
+				return;
+			}
+			if (num2 === "")
+			{
+				alert("Please enter number 2.");
+				msg.innerHTML = "";
+				num.focus();
+				return;
+			}
+			let n1 = parseFloat(num1.value);
+			let n2 = parseFloat(num2.value);
+	
+			if (action === "m1")
+			{
+				n1 < n2 ? msg.innerHTML = "min 1 = " + n1: msg.innerHTML = "min 1 = " + n2; 
+			}
+			else if (action === "m2")
+			{
+				if (n1 < n2)
+				{
+					msg.innerHTML = "min 2 = " + n1;
+				}
+				else
+				{
+					msg.innerHTML = "min 2 = " + n2;
+				}
+			}
+			else if (action === "m3")
+			{
+				let res = Math.min(n1,n2);
+				msg.innerHTML = "min 3 = "+res;
+			}
+		}
+	</script>
+	</body>
+</html>
